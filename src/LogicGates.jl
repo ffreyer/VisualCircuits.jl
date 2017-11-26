@@ -51,14 +51,15 @@ end
 
 
 function andgate(x, y, inputs, output=:out)
-    in_pos = partition((-1, -1), (-1, 1), length(inputs))
+    p = (x, y)
+    in_pos = partition(p + 0.5 * (-1, -1), p + 0.5 * (-1, 1), length(inputs))
     connections = Dict{Symbol, XYTuple}(
         map((label, pos) -> Pair(label, pos), inputs, in_pos)...,
-        :out => (1, 0)
+        :out => p + 0.5 * (1, 0)
     )
     composition = compose(
         context(
-            x - 1.1, y - 1.1, 2.2, 2.2,
+            x-0.55, y-0.55, 1.1, 1.1,
             units = UnitBox(-1.1, -1.1, 2.2, 2.2)
         ),
         and_base()
@@ -68,18 +69,19 @@ end
 
 
 function nandgate(x, y, inputs, output=:out)
-    in_pos = partition((-1, -1), (-1, 1), length(inputs))
+    p = (x, y)
+    in_pos = partition(p + 0.5 * (-1, -1), p + 0.5 * (-1, 1), length(inputs))
     connections = Dict{Symbol, XYTuple}(
         map((label, pos) -> Pair(label, pos), inputs, in_pos)...,
-        :out => (1.3, 0.0)
+        :out => p + 0.5 * (1.3, 0.0)
     )
     composition = compose(
         context(
-            x - 1.1, y - 1.1, 2.5, 2.2,
-            units = UnitBox(-1.1, -1.1, 2.5, 2.2)
+            x-0.55, y-0.55, 1.3, 1.1,
+            units = UnitBox(-1.1, -1.1, 2.6, 2.2)
         ),
         and_base(),
-        (context(), circle(1.15, 0, 0.15), fill(nothing))
+        (context(), circle(1.2, 0, 0.2), fill(nothing))
     )
     return Block(composition, connections)
 end
@@ -87,14 +89,15 @@ end
 
 function orgate(x, y, inputs, output=:out)
     @assert (length(inputs) == 2) "Only two inputs are implemented for OR."
+    p = (x, y)
     connections = Dict{Symbol, XYTuple}(
-        inputs[1] => (-0.7025, -0.5),
-        inputs[2] => (-0.7025, 0.5),
-        :out => (1, 0)
+        inputs[1] => p + 0.5 * (-0.7025, -0.5),
+        inputs[2] => p + 0.5 * (-0.7025, 0.5),
+        :out      => p + 0.5 * (1, 0)
     )
     composition = compose(
         context(
-            x - 1.1, y - 1.1, 2.2, 2.2,
+            x-0.55, y-0.55, 1.1, 1.1,
             units = UnitBox(-1.1, -1.1, 2.2, 2.2)
         ),
         or_base()
@@ -105,18 +108,19 @@ end
 
 function norgate(x, y, inputs, output=:out)
     @assert (length(inputs) == 2) "Only two inputs are implemented for NOR."
+    p = (x, y)
     connections = Dict{Symbol, XYTuple}(
-        inputs[1] => (-0.7025, -0.5),
-        inputs[2] => (-0.7025, 0.5),
-        :out => (1.3, 0.0)
+        inputs[1] => p + 0.5 * (-0.7025, -0.5),
+        inputs[2] => p + 0.5 * (-0.7025, 0.5),
+        :out      => p + 0.5 * (1.3, 0.0)
     )
     composition = compose(
         context(
-            x - 1.1, y - 1.1, 2.5, 2.2,
-            units = UnitBox(-1.1, -1.1, 2.5, 2.2)
+            x-0.55, y-0.55, 1.3, 1.1,
+            units = UnitBox(-1.1, -1.1, 2.6, 2.2)
         ),
         or_base(),
-        (context(), circle(1.15, 0, 0.15), fill(nothing))
+        (context(), circle(1.2, 0, 0.2), fill(nothing))
     )
     return Block(composition, connections)
 end
@@ -124,14 +128,15 @@ end
 
 function xorgate(x, y, inputs, output=:out)
     @assert (length(inputs) == 2) "Only two inputs are implemented for OR."
+    p = (x, y)
     connections = Dict{Symbol, XYTuple}(
-        inputs[1] => (-0.7025, -0.5),
-        inputs[2] => (-0.7025, 0.5),
-        :out => (1, 0)
+        inputs[1] => p + 0.5 * (-0.7025, -0.5),
+        inputs[2] => p + 0.5 * (-0.7025, 0.5),
+        :out      => p + 0.5 * (1, 0)
     )
     composition = compose(
         context(
-            x - 1.2, y - 1.1, 2.3, 2.2,
+            x-0.6, y-0.55, 1.15, 1.1,
             units = UnitBox(-1.2, -1.1, 2.3, 2.2)
         ),
         xor_base()
@@ -142,32 +147,34 @@ end
 
 function xnorgate(x, y, inputs, output=:out)
     @assert (length(inputs) == 2) "Only two inputs are implemented for NOR."
+    p = (x, y)
     connections = Dict{Symbol, XYTuple}(
-        inputs[1] => (-0.7025, -0.5),
-        inputs[2] => (-0.7025, 0.5),
-        :out => (1.3, 0.0)
+        inputs[1] => p + 0.5 * (-0.7025, -0.5),
+        inputs[2] => p + 0.5 * (-0.7025, 0.5),
+        :out      => p + 0.5 * (1.3, 0.0)
     )
     composition = compose(
         context(
-            x - 1.2, y - 1.1, 2.6, 2.2,
-            units = UnitBox(-1.2, -1.1, 2.6, 2.2)
+            x-0.6, y-0.55, 1.35, 1.1,
+            units = UnitBox(-1.2, -1.1, 2.7, 2.2)
         ),
         xor_base(),
-        (context(), circle(1.15, 0, 0.15), fill(nothing))
+        (context(), circle(1.2, 0, 0.2), fill(nothing))
     )
     return Block(composition, connections)
 end
 
 
 function notgate(x, y, inputs, output=:out)
-    in_pos = partition((-1.0, -1.0), (-1.0, 1.0), length(inputs))
+    p = (x, y)
+    in_pos = partition(p + 0.5 * (-1.0, -1.0), p + 0.5 * (-1.0, 1.0), length(inputs))
     connections = Dict{Symbol, XYTuple}(
         map((label, pos) -> Pair(label, pos), inputs, in_pos)...,
-        :out => (1.0, 0.)
+        :out => p + 0.5*(1.0, 0.)
     )
     composition = compose(
         context(
-            x - 1.1, y - 1.1, 2.2, 2.2,
+            x-0.55, y-0.55, 1.1, 1.1,
             units = UnitBox(-1.1, -1.1, 2.2, 2.2)
         ),
         (

@@ -1,13 +1,14 @@
 module VisualCircuits
 
 # Implement math for two-tuples
-import Base: +, -, *, /
-using Compose, Colors
+import Base: +, -, *, /, getindex, connect
+using Compose, Colors, Measures
 
 include("TupleMath.jl")
 include("core.jl")
-include("LogicGates.jl")
+export Block, connect, dots, render
 
-export Block, Gate
+include("LogicGates.jl")
+export Gate
 
 end # module
