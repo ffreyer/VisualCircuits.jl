@@ -12,7 +12,7 @@ end
 
 Connects point to (x, point[2]) if dir is :x or to (point[1], x) if dir is :y
 """
-function connect(point::Tuple{Real, Real}, x::Real, dir=:x)
+function connect(point::XYTuple, x::Real, dir=:x)
     if dir == :x
         return line([point, (x, point[2])])
     elseif dir == :y
@@ -29,7 +29,7 @@ end
 
 Render circles at points to signify electrical connections
 """
-function dots{t <: Tuple{Real, Real}}(points::t...; lw::Measures.Length=1mm)
+function dots(points::XYTuple...; lw::Measures.Length=1mm)
     radius = .10# * lw / 1mm
     compose(
         context(),
@@ -73,7 +73,7 @@ text centered around pos.
 """
 function render(
         pstrs::Union{Tuple{Tuple{Real, Real}, String}, Tuple{Real, Real, String}}...;
-        _fontsize::Compose.Property{Compose.FontSizePrimitive} = fontsize(30pt),
+        _fontsize::Compose.Property{Compose.FontSizePrimitive} = fontsize(40pt),
         _font::Compose.Property{Compose.FontPrimitive} = font("Helvetica-Bold")
     )
 
