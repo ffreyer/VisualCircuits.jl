@@ -3,7 +3,7 @@
 
 returns a line connecting all points.
 """
-function connect{t <: Tuple{Real, Real}}(points::t...)
+function connect(points::XYTuple...)
     line([points...])
 end
 

@@ -7,7 +7,7 @@ end
 function Block(x::Real, y::Real, tag::Symbol, inputs=[:in1, :in2]; kwargs...)
     logic_tags = [:NOT, :AND, :OR, :XOR, :NAND, :NOR, :XNOR]
     if tag in logic_tags
-        return logic_block(x, y, tag, inputs, kwargs...)
+        return Gate(x, y, tag, inputs, kwargs...)
     end
 end
 
