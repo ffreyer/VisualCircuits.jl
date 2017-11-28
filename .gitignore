@@ -3,3 +3,4 @@
 *.jl.mem
 test/devTest.jl
 *.svg
+src/LogicBlocks.jl
