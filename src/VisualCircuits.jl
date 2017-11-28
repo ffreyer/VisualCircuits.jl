@@ -12,6 +12,6 @@ include("LogicGates.jl")
 export Gate
 
 include("BlockUtils.jl")
-export connect, dots, render
+export connect, dots, render, autosize
 
 end # module

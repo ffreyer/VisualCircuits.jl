@@ -90,3 +90,13 @@ function render(
         linewidth(0mm), _fontsize, _font
     )
 end
+
+
+"""
+    autosize(width, height)
+
+Generate sensable sizes based on the circuit width and height.
+"""
+function autosize(width, height, w_scale=3cm, h_scale=3cm)
+    width * w_scale, height * h_scale
+end
