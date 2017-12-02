@@ -29,14 +29,14 @@ end
 
 Render circles at points to signify electrical connections
 """
-function dots(points::XYTuple...; lw::Measures.Length=1mm)
+function dots(points::XYTuple...; lw::Measures.Length=1mm, color="black")
     radius = .10# * lw / 1mm
     compose(
         context(),
         map(points) do p
             circle(p[1], p[2], radius)
         end...,
-        fill("Black"),
+        fill(color),
         linewidth(0mm)
     )
 end

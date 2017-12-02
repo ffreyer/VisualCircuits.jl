@@ -6,7 +6,7 @@ using Compose, Colors, Measures
 
 include("TupleMath.jl")
 include("core.jl")
-export Block
+export Block, IC
 
 include("LogicGates.jl")
 export Gate

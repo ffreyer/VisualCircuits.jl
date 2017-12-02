@@ -53,4 +53,5 @@ circuit = begin
     )
 end
 
-draw(PDF("RS_FlipFlop.pdf", autosize(width, height)...), circuit)
+# draw(PDF("RS_FlipFlop.pdf", autosize(width, height)...), circuit)
+draw(SVG("RS_FlipFlop.svg", autosize(width, height)...), circuit)

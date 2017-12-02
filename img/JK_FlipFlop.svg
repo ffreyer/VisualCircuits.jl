@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     version="1.2"
+     width="225mm" height="120mm" viewBox="0 0 225 120"
+     stroke="none"
+     fill="#000000"
+     stroke-width="0.3"
+     font-size="3.88"
+>
+<g stroke-width="2" stroke="#000000" id="img-fd75bfae-1">
+  <path fill="none" d="M75,88 L 60 88 60 75 120 75"/>
+  <path fill="none" d="M75,32 L 60 32 60 45 120 45"/>
+  <path fill="none" d="M75,24 L 45 24 45 96 75 96"/>
+  <path fill="none" d="M135,84 L 120 84 120 67.5 180 52.5 180 30 171 30"/>
+  <path fill="none" d="M135,36 L 120 36 120 52.5 180 67.5 180 90 171 90"/>
+  <path fill="none" d="M135,96 L 111 96"/>
+  <path fill="none" d="M135,24 L 111 24"/>
+  <path fill="none" d="M45,60 L 30 60"/>
+  <path fill="none" d="M75,104 L 30 104"/>
+  <path fill="none" d="M75,16 L 30 16"/>
+  <path fill="none" d="M171,90 L 195 90"/>
+  <path fill="none" d="M171,30 L 195 30"/>
+  <g font-family="Helvetica-Bold" font-size="14.11" stroke-width="0" id="img-fd75bfae-2">
+    <text x="210" y="90" text-anchor="middle" dy="0.35em">~Q</text>
+    <text x="210" y="30" text-anchor="middle" dy="0.35em">Q</text>
+    <text x="15" y="60" text-anchor="middle" dy="0.35em">C</text>
+    <text x="15" y="104" text-anchor="middle" dy="0.35em">K</text>
+    <text x="15" y="16" text-anchor="middle" dy="0.35em">J</text>
+  </g>
+  <g stroke-width="0" fill="#000000" id="img-fd75bfae-3">
+    <use xlink:href="#img-fd75bfae-4" x="120" y="75"/>
+    <use xlink:href="#img-fd75bfae-5" x="120" y="45"/>
+    <use xlink:href="#img-fd75bfae-6" x="45" y="60"/>
+    <use xlink:href="#img-fd75bfae-7" x="180" y="90"/>
+    <use xlink:href="#img-fd75bfae-8" x="180" y="30"/>
+  </g>
+  <g fill="#000000" fill-opacity="0.000" id="img-fd75bfae-9">
+    <use xlink:href="#img-fd75bfae-10" x="108" y="96"/>
+  </g>
+  <path fill="none" d="M90,108 C110,108 110,84 90,84 "/>
+  <path fill="none" d="M90.02,108 L 75 108 75 84 90.02 84"/>
+  <g fill="#000000" fill-opacity="0.000" id="img-fd75bfae-11">
+    <use xlink:href="#img-fd75bfae-12" x="108" y="24"/>
+  </g>
+  <path fill="none" d="M90,36 C110,36 110,12 90,12 "/>
+  <path fill="none" d="M90.02,36 L 75 36 75 12 90.02 12"/>
+  <g fill="#000000" fill-opacity="0.000" id="img-fd75bfae-13">
+    <use xlink:href="#img-fd75bfae-14" x="168" y="90"/>
+  </g>
+  <path fill="none" d="M150,102 C170,102 170,78 150,78 "/>
+  <path fill="none" d="M150.01,102 L 135 102 135 78 150.01 78"/>
+  <g fill="#000000" fill-opacity="0.000" id="img-fd75bfae-15">
+    <use xlink:href="#img-fd75bfae-16" x="168" y="30"/>
+  </g>
+  <path fill="none" d="M150,42 C170,42 170,18 150,18 "/>
+  <path fill="none" d="M150.01,42 L 135 42 135 18 150.01 18"/>
+</g>
+<defs>
+  <g id="img-fd75bfae-4">
+    <circle cx="0" cy="0" r="3"/>
+  </g>
+  <g id="img-fd75bfae-5">
+    <circle cx="0" cy="0" r="3"/>
+  </g>
+  <g id="img-fd75bfae-6">
+    <circle cx="0" cy="0" r="3"/>
+  </g>
+  <g id="img-fd75bfae-7">
+    <circle cx="0" cy="0" r="3"/>
+  </g>
+  <g id="img-fd75bfae-8">
+    <circle cx="0" cy="0" r="3"/>
+  </g>
+  <g id="img-fd75bfae-10">
+    <circle cx="0" cy="0" r="3"/>
+  </g>
+  <g id="img-fd75bfae-12">
+    <circle cx="0" cy="0" r="3"/>
+  </g>
+  <g id="img-fd75bfae-14">
+    <circle cx="0" cy="0" r="3"/>
+  </g>
+  <g id="img-fd75bfae-16">
+    <circle cx="0" cy="0" r="3"/>
+  </g>
+</defs>
+</svg>

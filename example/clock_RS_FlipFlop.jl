@@ -6,8 +6,7 @@ nand2 = Gate(4.5, 3, :NAND)
 nand3 = Gate(2.5, nand1[:in1][2], :NAND)
 nand4 = Gate(2.5, nand2[:in2][2], :NAND)
 
-circuit = begin
-    compose(
+circuit = compose(
     # Range of coordinate system
     context(units=UnitBox(0, 0, width, height)),
 
@@ -65,7 +64,7 @@ circuit = begin
 
     # compose options
     stroke("black"), linewidth(2mm)
-    )
-end
+)
 
-draw(PDF("Clocked_RS_FlipFlop.pdf", autosize(width, height)...), circuit)
+# draw(PDF("Clocked_RS_FlipFlop.pdf", autosize(width, height)...), circuit)
+draw(SVG("Clocked_RS_FlipFlop.svg", autosize(width, height)...), circuit)
