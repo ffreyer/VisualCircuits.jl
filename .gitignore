@@ -4,3 +4,4 @@
 test/devTest.jl
 src/LogicBlocks.jl
 *.pdf
+src/parser.jl

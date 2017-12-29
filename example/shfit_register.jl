@@ -1,127 +1,162 @@
 using VisualCircuits, Compose
 
 begin
-    IC7476(x, y) = IC(x, y, [
-        :CLK1 :PRE1 :CLR1 :J1 :VCC :CLK2 :PRE2 :CLR2;
-        :K1 :Q1 Symbol("~Q1") :GND :K2 :Q2 Symbol("~Q2") :J2
-    ])
-
     notQ1 = Symbol("~Q1")
     notQ2 = Symbol("~Q2")
 
-    width, height = 11, 5.0
-    ic1 = IC7476(3, 2.5)
-    ic2 = IC7476(8, 2.5)
+    # JK flip flop
+    IC7476(x, y) = IC(x, y, "7476", [
+        :K1     :Q1     notQ1   :GND    :K2     :Q2     notQ2   :J2;
+        :CLK1   :PRE1   :CLR1   :J1     :VCC    :CLK2   :PRE2   :CLR2
+    ])
 
-    le = 0.5 # left edge
-    circuit = compose(
-        context(units = UnitBox(-0.5, 0.3, width, height)),
+    width, height = 11, 5.8
+    jk1 = IC7476(3.5, 3.3)
+    jk2 = IC7476(8.5, 3.3)
 
-        render(ic1), render(ic2),
+    # edges
+    le = 1
+    re = width
 
-        # clock
-        connect((ic1[:CLK1][1], 1.2), ic1[:CLK1]),
-        connect((ic1[:CLK2][1], 1.2), ic1[:CLK2]),
-        connect((ic2[:CLK1][1], 1.2), ic2[:CLK1]),
-        connect((le, 1.2), (ic2[:CLK2][1], 1.2), ic2[:CLK2]),
-        dots((ic1[:CLK1][1], 1.2), (ic1[:CLK2][1], 1.2), (ic2[:CLK1][1], 1.2)),
+    # guide (not displayed)
+    box = compose(
+        context(),
+        rectangle(0, 0, width, height),
+        stroke("cyan"), fill(nothing)
+    )
 
-        # Power
-        compose(
-            context(),
-            connect(ic1[:VCC], (ic1[:VCC][1], 0.6)),
-            connect(ic2[:VCC], (ic2[:VCC][1], 0.6)),
-            connect(ic1[:PRE1], (ic1[:PRE1][1], 0.6)),
-            connect(ic1[:PRE2], (ic1[:PRE2][1], 0.6)),
-            connect(ic2[:PRE1], (ic2[:PRE1][1], 0.6)),
-            connect(ic2[:PRE2], (ic2[:PRE2][1], 0.6), (le, 0.6)),
-            dots(
-                (ic1[:VCC][1], 0.6), (ic2[:VCC][1], 0.6),
-                (ic1[:PRE1][1], 0.6), (ic1[:PRE2][1], 0.6),
-                (ic2[:PRE1][1], 0.6), color = "darkred"
-            ),
-            stroke("darkred")
+    # power
+    y = 5.6
+    power = compose(
+        context(),
+        connect((le, y), (re, y)),
+        connect(jk1[:PRE1], y, :y),    connect(jk2[:PRE1], y, :y),
+        connect(jk1[:VCC],  y, :y),    connect(jk2[:VCC],  y, :y),
+        connect(jk1[:PRE2], y, :y),    connect(jk2[:PRE2], y, :y),
+        dots(
+            (jk1[:PRE1][1], y),        (jk2[:PRE1][1], y),
+            (jk1[:VCC][1],  y),        (jk2[:VCC][1],  y),
+            (jk1[:PRE2][1], y),        (jk2[:PRE2][1], y),
+            color = "darkred"
         ),
-        compose(
-            context(),
-            connect(ic1[:GND], (ic1[:GND][1], 3.8)),
-            connect(ic2[:GND], (ic2[:GND][1], 3.8), (le, 3.8)),
-            dots((ic1[:GND][1], 3.8), color="darkblue"),
-            stroke("darkblue")
-        ),
+        stroke("darkred")
+    )
 
-        # latch to latch
-        connect(ic1[:Q1], (ic1[:Q1][1], 4.1), (ic1[:J2][1], 4.1), ic1[:J2]),
-        connect(ic1[notQ1], (ic1[notQ1][1], 3.5), (ic1[:K2][1], 3.5), ic1[:K2]),
-        connect(ic1[notQ2], (ic1[notQ2][1], 3.5), (ic2[:K1][1], 3.5), ic2[:K1]),
+    y = 1.0
+    ground = compose(
+        context(),
+        connect((le, y), (re, y)),
+        connect(jk1[:GND], y, :y),     connect(jk2[:GND], y, :y),
+        dots(
+            (jk1[:GND][1], y),         (jk2[:GND][1], y),
+            color = "darkblue"
+        ),
+        stroke("darkblue")
+    )
+
+    # clear
+    x = 1
+    y = 5.2
+    clear = compose(
+        context(),
+        connect(jk1[:CLR1], (jk1[:CLR1][1], y)),
+        connect(jk1[:CLR2], (jk1[:CLR2][1], y)),
+        connect(jk2[:CLR1], (jk2[:CLR1][1], y)),
+        connect(jk2[:CLR2], (jk2[:CLR2][1], y), (x, y)),
+        dots(
+            (jk1[:CLR1][1], y), (jk1[:CLR2][1], y),
+            (jk2[:CLR1][1], y), color = "darkgreen"
+        ),
+        stroke("darkgreen")
+    )
+
+    # clock
+    x = 1
+    y = 4.8
+    clock = compose(
+        context(),
+        connect(jk1[:CLK1], (jk1[:CLK1][1], y)),
+        connect(jk1[:CLK2], (jk1[:CLK2][1], y)),
+        connect(jk2[:CLK1], (jk2[:CLK1][1], y)),
+        connect(jk2[:CLK2], (jk2[:CLK2][1], y), (x, y)),
+        dots(
+            (jk1[:CLK1][1], y), (jk1[:CLK2][1], y),
+            (jk2[:CLK1][1], y), color = "darkcyan"),
+        stroke("darkcyan")
+    )
+
+    # j & K
+    x = 1
+    y1 = 4.4
+    y2 = 2.2
+    inputs = compose(
+        context(),
+        connect(jk1[:J1], (jk1[:J1][1], y1), (x, y1)),
+        connect(jk1[:K1], (jk1[:K1][1], y2), (x, y2)),
+    )
+
+    # general wires
+    x = 6
+    y0 = 4.4
+    y1 = 2.2
+    y2 = 1.8
+    y3 = 1.4
+    # y4 = 1.0
+    # y5 = 0.6
+    wires = compose(
+        context(),
+        connect(jk1[notQ1], (jk1[notQ1][1], y1), (jk1[:K2][1], y1), jk1[:K2]),
+        connect(jk1[notQ2], (jk1[notQ2][1], y1), (jk2[:K1][1], y1), jk2[:K1]),
+        connect(jk2[notQ1], (jk2[notQ1][1], y1), (jk2[:K2][1], y1), jk2[:K2]),
+        connect(jk1[:J2], (jk1[:J2][1], y2), (jk1[:Q1][1], y2), jk1[:Q1]),
+        connect(jk2[:J2], (jk2[:J2][1], y2), (jk2[:Q1][1], y2), jk2[:Q1]),
         connect(
-            ic1[:Q2], (ic1[:Q2][1], 4.4), (5.5, 4.4),
-            (5.5, 1.5), (ic2[:J1][1], 1.5), ic2[:J1]
-        ),
-        connect(ic2[:Q1], (ic2[:Q1][1], 4.1), (ic2[:J2][1], 4.1), ic2[:J2]),
-        connect(ic2[notQ1], (ic2[notQ1][1], 3.5), (ic2[:K2][1], 3.5), ic2[:K2]),
+            jk2[:J1], (jk2[:J1][1], y0), (x, y0),
+            (x, y3), (jk1[:Q2][1], y3), jk1[:Q2]
+        )
+    )
 
-
-        # CLR
-        compose(
-            context(),
-            connect(ic2[:CLR2], (ic2[:CLR2][1], 0.9), (le, 0.9)),
-            connect(ic2[:CLR1], (ic2[:CLR1][1], 0.9)),
-            connect(ic1[:CLR2], (ic1[:CLR2][1], 0.9)),
-            connect(ic1[:CLR1], (ic1[:CLR1][1], 0.9)),
-            dots(
-                (ic1[:CLR1][1], 0.9),
-                (ic1[:CLR2][1], 0.9),
-                (ic2[:CLR1][1], 0.9),
-                color="darkgreen"
-            ),
-            stroke("darkgreen")
+    # outputs
+    y = 0.6
+    outputs = compose(
+        context(),
+        connect(jk1[:Q1], y, :y), connect(jk1[:Q2], y, :y),
+        connect(jk2[:Q1], y, :y), connect(jk2[:Q2], y, :y),
+        dots((jk1[:Q1][1], y2), (jk1[:Q2][1], y3), (jk2[:Q1][1], y2)),
+        dots(
+            (jk1[:Q1][1], y), (jk1[:Q2][1], y),
+            (jk2[:Q1][1], y), (jk2[:Q2][1], y),
+            color = "orange"
         ),
 
-        # light out (Qs)
-        compose(
-            context(),
-            connect(ic2[:Q2], (ic2[:Q2][1], 4.8)),
-            connect(ic2[:Q1], (ic2[:Q1][1], 4.8)),
-            connect(ic1[:Q2], (ic1[:Q2][1], 4.8)),
-            connect(ic1[:Q1], (ic1[:Q1][1], 4.8)),
-            dots(
-                (ic1[:Q1][1], 4.8),
-                (ic1[:Q2][1], 4.8),
-                (ic2[:Q1][1], 4.8),
-                (ic2[:Q2][1], 4.8),
-                color="orange"
-            ),
-            dots(
-                (ic1[:Q1][1], 4.1),
-                (ic1[:Q2][1], 4.4),
-                (ic2[:Q1][1], 4.1),
-                color="black"
-            ),
-            stroke("orange")
-        ),
+        stroke("orange")
+    )
 
-        # input
-        connect(ic1[:J1], (ic1[:J1][1], 1.5), (le, 1.5)),
-        connect(ic1[:K1], (ic1[:K1][1], 3.5), (le, 3.5)),
+    # labels
+    labels = compose(
+        context(),
+        text(0.9, 5.6, "VCC", hright, vcenter),
+        text(0.9, 5.2, "CLR", hright, vcenter),
+        text(0.9, 4.8, "CLK", hright, vcenter),
+        text(0.9, 4.4, "J", hright, vcenter),
+        text(0.9, 2.2, "K", hright, vcenter),
+        text(0.9, 1.0, "GND", hright, vcenter),
+        text(2.3, 0.4, "OUT1", hcenter, vbottom),
+        text(4.3, 0.4, "OUT2", hcenter, vbottom),
+        text(7.3, 0.4, "OUT3", hcenter, vbottom),
+        text(9.3, 0.4, "OUT4", hcenter, vbottom),
+        fontsize(20pt), font("Helvetica-Bold"), linewidth(0mm)
+    )
 
-        # names
-        compose(
-            context(),
-            text(0.4, 0.6, "VCC", hright, vcenter),
-            text(0.4, 0.9, "CLR", hright, vcenter),
-            text(0.4, 1.2, "CLK", hright, vcenter),
-            text(0.4, 1.5, "J", hright, vcenter),
-            text(0.4, 3.5, "K", hright, vcenter),
-            text(0.4, 3.8, "GND", hright, vcenter),
+    circuit = compose(
+        context(units = UnitBox(0, 0, width, height)),
+        render(jk1), render(jk2),
 
-            text(ic1[:Q1][1], 5.0, "OUT1", hcenter, vtop),
-            text(ic1[:Q2][1], 5.0, "OUT2", hcenter, vtop),
-            text(ic2[:Q1][1], 5.0, "OUT3", hcenter, vtop),
-            text(ic2[:Q2][1], 5.0, "OUT4", hcenter, vtop),
-            fontsize(8), font("Helvetica-Bold"),
-            linewidth(0mm)
-        ),
+        #box,
+        power, ground,
+        clear, clock,
+        inputs, wires, outputs,
+        labels,
 
         stroke("black"), linewidth(2mm)
     )

@@ -36,9 +36,9 @@ end
 
 
 function IC(
-        x::Real, y::Real, pins::Matrix{Symbol};
+        x::Real, y::Real, name::String, pins::Matrix{Symbol};
         scale_x::Real = 1.0, scale_y::Real = 1.0, text_offset::Float64 = 0.05,
-        _fontsize = fontsize(20pt), _font = font("Helvetica-Bold")
+        _fontsize::Measures.Length = 20pt, _font::String = "Helvetica-Bold"
     )
     M, N = size(pins)
     p = (x, y)
@@ -61,7 +61,7 @@ function IC(
             map(pins[:, 2], right) do s, tp
                 text(tp[1] - text_offset, tp[2], string(s), hright, vcenter)
             end...,
-            linewidth(0mm), _fontsize, _font, fill("black")
+            linewidth(0mm), fontsize(0.75_fontsize), font(_font), fill("black")
         )
     else
         # horizontal layout
@@ -83,12 +83,17 @@ function IC(
                 rot = Rotation(pi/2, tp[1], tp[2] - text_offset*sy)
                 text(tp[1], tp[2] - text_offset*sy, string(s), hright, vcenter, rot)
             end...,
-            linewidth(0.0mm), _fontsize, _font, fill("black")
+            linewidth(0.0mm), fontsize(0.75_fontsize), font(_font), fill("black")
         )
     end
     composition = compose(
         context(),
         text_comp,
+        compose(
+            context(),
+            text(x, y, name, hcenter, vcenter),
+            linewidth(0.0mm), fontsize(_fontsize), font(_font), fill("black")
+        ),
         compose(
             context(),
             rectangle(x - 0.5width, y - 0.5height, width, height),

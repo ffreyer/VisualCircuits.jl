@@ -64,8 +64,8 @@ end
 """
     render(
         pstrs...;
-        _fontsize = fontsize(40pt),
-        _font = font("Helvetica-Bold")
+        _fontsize = 40pt,
+        _font = "Helvetica-Bold"
     )
 
 Given Tuples (pos, text), this function will generate a renderable object with
@@ -73,8 +73,8 @@ text centered around pos.
 """
 function render(
         pstrs::Union{Tuple{Tuple{Real, Real}, String}, Tuple{Real, Real, String}}...;
-        _fontsize::Compose.Property{Compose.FontSizePrimitive} = fontsize(40pt),
-        _font::Compose.Property{Compose.FontPrimitive} = font("Helvetica-Bold")
+        _fontsize::Measures.Length = 40pt,
+        _font::String = "Helvetica-Bold"
     )
 
     texts = map(pstrs) do pstr
@@ -87,7 +87,7 @@ function render(
     end
     compose(
         context(), texts...,
-        linewidth(0mm), _fontsize, _font
+        linewidth(0mm), fontsize(_fontsize), font(_font)
     )
 end
 
