@@ -14,7 +14,7 @@ function Gate(
     elseif  logic == :NOR   return nor_gate(x, y, inputs, output, scale_x, scale_y)
     elseif  logic == :XOR   return xor_gate(x, y, inputs, output, scale_x, scale_y)
     elseif  logic == :XNOR  return xnor_gate(x, y, inputs, output, scale_x, scale_y)
-    elseif  logic == :NOT   return not_gate(x, y, inputs, output, scale_x, scale_y)
+    elseif  logic == :NOT   return not_gate(x, y, [:in], output, scale_x, scale_y)
     else
         println("Failed to recognize Logic")
         return nothing
