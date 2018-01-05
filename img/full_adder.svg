@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     version="1.2"
+     width="240mm" height="114mm" viewBox="0 0 240 114"
+     stroke="none"
+     fill="#000000"
+     stroke-width="0.3"
+     font-size="3.88"
+>
+<g stroke-width="2" stroke="#000000" id="img-a81f7d9b-1">
+  <path fill="none" d="M198,78 L 213 78"/>
+  <path fill="none" d="M183,30 L 213 30"/>
+  <path fill="none" d="M147,93 L 157.5 93 161.96 84 172.46 84"/>
+  <path fill="none" d="M147,63 L 157.5 63 161.96 72 172.46 72"/>
+  <path fill="none" d="M39,24 L 39 99 117 99"/>
+  <path fill="none" d="M51,12 L 51 87 117 87"/>
+  <path fill="none" d="M93,36 L 93 69 117 69"/>
+  <path fill="none" d="M105,18 L 105 57 117 57"/>
+  <path fill="none" d="M93,18 L 123 18 127.46 24 157.46 24"/>
+  <path fill="none" d="M157.46,36 L 18 36"/>
+  <path fill="none" d="M67.46,24 L 18 24"/>
+  <path fill="none" d="M67.46,12 L 18 12"/>
+  <g stroke-width="0" font-family="Helvetica-Bold" font-size="10.58" id="img-a81f7d9b-2">
+    <text x="216" y="78" dy="0.35em">Cₒᵤₜ</text>
+    <text x="216" y="30" dy="0.35em">S</text>
+    <text x="15" y="36" text-anchor="end" dy="0.35em">Cᵢₙ</text>
+    <text x="15" y="24" text-anchor="end" dy="0.35em">B</text>
+    <text x="15" y="12" text-anchor="end" dy="0.35em">A</text>
+  </g>
+  <g stroke-width="0" fill="#000000" id="img-a81f7d9b-3">
+    <use xlink:href="#img-a81f7d9b-4" x="39" y="24"/>
+    <use xlink:href="#img-a81f7d9b-5" x="51" y="12"/>
+    <use xlink:href="#img-a81f7d9b-6" x="93" y="36"/>
+    <use xlink:href="#img-a81f7d9b-7" x="105" y="18"/>
+  </g>
+  <path fill="none" d="M168,66 C183,66 190.5,66 198,78 "/>
+  <path fill="none" d="M168,90 C183,90 190.5,90 198,78 "/>
+  <path fill="none" d="M168,66 C175.5,72 175.5,84 168,90 "/>
+  <path fill="none" d="M132,105 C152,105 152,81 132,81 "/>
+  <path fill="none" d="M132.01,105 L 117 105 117 81 132.01 81"/>
+  <path fill="none" d="M132,75 C152,75 152,51 132,51 "/>
+  <path fill="none" d="M132.01,75 L 117 75 117 51 132.01 51"/>
+  <path fill="none" d="M153,18 C168,18 175.5,18 183,30 "/>
+  <path fill="none" d="M153,42 C168,42 175.5,42 183,30 "/>
+  <path fill="none" d="M150,18 C157.5,24 157.5,36 150,42 "/>
+  <path fill="none" d="M153,18 C160.5,24 160.5,36 153,42 "/>
+  <path fill="none" d="M63,6 C78,6 85.5,6 93,18 "/>
+  <path fill="none" d="M63,30 C78,30 85.5,30 93,18 "/>
+  <path fill="none" d="M60,6 C67.5,12 67.5,24 60,30 "/>
+  <path fill="none" d="M63,6 C70.5,12 70.5,24 63,30 "/>
+</g>
+<defs>
+  <g id="img-a81f7d9b-4">
+    <circle cx="0" cy="0" r="3"/>
+  </g>
+  <g id="img-a81f7d9b-5">
+    <circle cx="0" cy="0" r="3"/>
+  </g>
+  <g id="img-a81f7d9b-6">
+    <circle cx="0" cy="0" r="3"/>
+  </g>
+  <g id="img-a81f7d9b-7">
+    <circle cx="0" cy="0" r="3"/>
+  </g>
+</defs>
+</svg>
