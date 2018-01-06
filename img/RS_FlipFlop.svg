@@ -2,51 +2,51 @@
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"
      version="1.2"
-     width="150mm" height="120mm" viewBox="0 0 150 120"
+     width="150mm" height="90mm" viewBox="0 0 150 90"
      stroke="none"
      fill="#000000"
      stroke-width="0.3"
      font-size="3.88"
 >
-<g stroke-width="2" stroke="#000000" id="img-50a49ab1-1">
-  <path fill="none" d="M60,84 L 45 84 45 75 105 45 105 30 96 30"/>
-  <path fill="none" d="M60,36 L 45 36 45 45 105 75 105 90 96 90"/>
-  <path fill="none" d="M96,90 L 120 90"/>
-  <path fill="none" d="M96,30 L 120 30"/>
-  <path fill="none" d="M60,96 L 30 96"/>
-  <path fill="none" d="M60,24 L 30 24"/>
-  <g font-family="Helvetica-Bold" font-size="14.11" stroke-width="0" id="img-50a49ab1-2">
-    <text x="135" y="90" text-anchor="middle" dy="0.35em">~Q</text>
-    <text x="135" y="30" text-anchor="middle" dy="0.35em">Q</text>
-    <text x="15" y="96" text-anchor="middle" dy="0.35em">S</text>
-    <text x="15" y="24" text-anchor="middle" dy="0.35em">R</text>
+<g stroke-width="2" stroke="#000000" id="img-eee652d2-1">
+  <path fill="none" d="M60,69 L 45 69 45 60 105 30 105 15 96 15"/>
+  <path fill="none" d="M60,21 L 45 21 45 30 105 60 105 75 96 75"/>
+  <path fill="none" d="M96,75 L 120 75"/>
+  <path fill="none" d="M96,15 L 120 15"/>
+  <path fill="none" d="M60,81 L 30 81"/>
+  <path fill="none" d="M60,9 L 30 9"/>
+  <g font-family="Helvetica-Bold" font-size="14.11" stroke-width="0" id="img-eee652d2-2">
+    <text x="135" y="75" text-anchor="middle" dy="0.35em">~Q</text>
+    <text x="135" y="15" text-anchor="middle" dy="0.35em">Q</text>
+    <text x="15" y="81" text-anchor="middle" dy="0.35em">R</text>
+    <text x="15" y="9" text-anchor="middle" dy="0.35em">S</text>
   </g>
-  <g stroke-width="0" fill="#000000" id="img-50a49ab1-3">
-    <use xlink:href="#img-50a49ab1-4" x="105" y="90"/>
-    <use xlink:href="#img-50a49ab1-5" x="105" y="30"/>
+  <g stroke-width="0" fill="#000000" id="img-eee652d2-3">
+    <use xlink:href="#img-eee652d2-4" x="105" y="75"/>
+    <use xlink:href="#img-eee652d2-5" x="105" y="15"/>
   </g>
-  <g fill="#000000" fill-opacity="0.000" id="img-50a49ab1-6">
-    <use xlink:href="#img-50a49ab1-7" x="93" y="90"/>
+  <g fill="#000000" fill-opacity="0.000" id="img-eee652d2-6">
+    <use xlink:href="#img-eee652d2-7" x="93" y="75"/>
   </g>
-  <path fill="none" d="M75,102 C95,102 95,78 75,78 "/>
-  <path fill="none" d="M75.02,102 L 60 102 60 78 75.02 78"/>
-  <g fill="#000000" fill-opacity="0.000" id="img-50a49ab1-8">
-    <use xlink:href="#img-50a49ab1-9" x="93" y="30"/>
+  <path fill="none" d="M75,87 C95,87 95,63 75,63 "/>
+  <path fill="none" d="M75.02,87 L 60 87 60 63 75.02 63"/>
+  <g fill="#000000" fill-opacity="0.000" id="img-eee652d2-8">
+    <use xlink:href="#img-eee652d2-9" x="93" y="15"/>
   </g>
-  <path fill="none" d="M75,42 C95,42 95,18 75,18 "/>
-  <path fill="none" d="M75.02,42 L 60 42 60 18 75.02 18"/>
+  <path fill="none" d="M75,27 C95,27 95,3 75,3 "/>
+  <path fill="none" d="M75.02,27 L 60 27 60 3 75.02 3"/>
 </g>
 <defs>
-  <g id="img-50a49ab1-4">
+  <g id="img-eee652d2-4">
     <circle cx="0" cy="0" r="3"/>
   </g>
-  <g id="img-50a49ab1-5">
+  <g id="img-eee652d2-5">
     <circle cx="0" cy="0" r="3"/>
   </g>
-  <g id="img-50a49ab1-7">
+  <g id="img-eee652d2-7">
     <circle cx="0" cy="0" r="3"/>
   </g>
-  <g id="img-50a49ab1-9">
+  <g id="img-eee652d2-9">
     <circle cx="0" cy="0" r="3"/>
   </g>
 </defs>

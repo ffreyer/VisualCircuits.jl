@@ -55,8 +55,8 @@ circuit = compose(
 
     # render text
     render(
-        (0.5, nand3[:in1][2], "R"),
-        (0.5, nand4[:in2][2], "S"),
+        (0.5, nand3[:in1][2], "S"),
+        (0.5, nand4[:in2][2], "R"),
         (0.5, 2, "C"),
         (width-0.5, nand1[:out][2], "Q"),
         (width-0.5, nand2[:out][2], "~Q")
