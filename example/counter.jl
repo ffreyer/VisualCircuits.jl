@@ -87,9 +87,9 @@ begin
         connect(jk2[:CLR2], (jk2[:CLR2][1], y), (x, y)),
         dots(
             (jk1[:CLR1][1], y), (jk1[:CLR2][1], y),
-            (jk2[:CLR1][1], y), color = "darkgreen"
+            (jk2[:CLR1][1], y), color = "purple"
         ),
-        stroke("darkgreen")
+        stroke("purple")
     )
 
     x = 1
